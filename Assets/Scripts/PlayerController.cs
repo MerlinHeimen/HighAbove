@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Movement Speed & Jumpforce
-    [SerializeField] private float _speed = 1;
+    [SerializeField] private float _speed = 3;
     [SerializeField] private float _jumpForce = 200;
-    [SerializeField] private float _dashForce = 200;
+    [SerializeField] private float _dashForce = 100;
 
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private bool _GroundCheck;
