@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028326, g: 0.22571333, b: 0.30692202, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2872,18 +2872,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform
       objectReference: {fileID: 0}
-    - target: {fileID: 3322019604680692089, guid: 39f7aca36330a7346a6b6368906d4179, type: 3}
-      propertyPath: m_Constraints
-      value: 126
-      objectReference: {fileID: 0}
-    - target: {fileID: 3322019604680692089, guid: 39f7aca36330a7346a6b6368906d4179, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3322019604680692089, guid: 39f7aca36330a7346a6b6368906d4179, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4073491568281059280, guid: 39f7aca36330a7346a6b6368906d4179, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4983,11 +4971,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750556, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.73
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750556, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.21
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750556, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5023,7 +5011,15 @@ PrefabInstance:
       objectReference: {fileID: 1084331352}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: _speed
-      value: 3.5
+      value: 3.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
+      propertyPath: _DashCheck
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
+      propertyPath: _dashForce
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: _jumpForce
@@ -5031,7 +5027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: GroundBuffer
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: _GroundCheck
@@ -5039,7 +5035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: GroundCheckDistance
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: _GroundCheckDistance

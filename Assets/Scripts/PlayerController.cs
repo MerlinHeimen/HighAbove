@@ -7,14 +7,15 @@ public class PlayerController : MonoBehaviour
     //Movement Speed & Jumpforce
     [SerializeField] private float _speed = 1;
     [SerializeField] private float _jumpForce = 200;
+    [SerializeField] private float _dashForce = 200;
 
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private bool _GroundCheck;
-    
-    public float GroundCheckDistance = 0.1f;
-    public float GroundBuffer = 0.1f;
+    [SerializeField] private bool _DashCheck;
 
-    
+    public float GroundCheckDistance = 0.05f;
+
+
 
 
 
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         var vel = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * _speed;
 
         vel.y = _rb.velocity.y;
@@ -30,9 +32,18 @@ public class PlayerController : MonoBehaviour
         //Jump if Space is pressed & GroundCheck = true
         if (Input.GetKeyDown(KeyCode.Space) && _GroundCheck == true)
         {
+            _DashCheck = false;
             _rb.AddForce(Vector3.up * _jumpForce);
         }
-        
+
+        //Dash
+        var dashDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+
+        if (Input.GetKeyDown(KeyCode.Space) && _GroundCheck == false && _DashCheck == false)
+        {
+            _rb.AddForce(dashDirection * _dashForce, ForceMode.Impulse);
+            _DashCheck = true;
+        }
 
     }
 
@@ -47,7 +58,7 @@ public class PlayerController : MonoBehaviour
         {
             _GroundCheck = true;
             Debug.Log("Geht nicht");
-            
+
         }
         else
         {
