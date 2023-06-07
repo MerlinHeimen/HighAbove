@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        var vel = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * _speed;
+        var vel = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * _speed;
 
         vel.y = _rb.velocity.y;
         _rb.velocity = vel;
@@ -43,7 +43,17 @@ public class PlayerController : MonoBehaviour
         {
             _rb.AddForce(dashDirection * _dashForce, ForceMode.Impulse);
             _DashCheck = true;
+            Debug.Log("Dash!");
         }
+
+        //Double Jump
+        //var jumpDirection = new Vector3(0, 1, 0); //Input.GetAxis("Vertical")
+
+        /*if (Input.GetKeyDown(KeyCode.Space) && Input.GetKeyDown("w")) //&& _GroundCheck == false
+        {
+            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            Debug.Log("WHEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!");
+        }*/
 
     }
 
@@ -57,13 +67,13 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(transform.position, -transform.up, out hit, GroundCheckDistance))
         {
             _GroundCheck = true;
-            Debug.Log("Geht nicht");
+            Debug.Log("Am Boden");
 
         }
         else
         {
             _GroundCheck = false;
-            Debug.Log("Geht auch nicht");
+            Debug.Log("In der Luft");
         }
     }
 
