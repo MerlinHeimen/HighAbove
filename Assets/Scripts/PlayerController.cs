@@ -7,10 +7,12 @@ public class PlayerController : MonoBehaviour
     //Movement Speed & Jumpforce
     [SerializeField] private float _speed = 3;
     [SerializeField] private float _jumpForce = 200;
+    [SerializeField] private float _doublejumpForce = 5;
     [SerializeField] private float _dashForce = 100;
 
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private bool _GroundCheck;
+    [SerializeField] private bool _doublejumpCheck;
     [SerializeField] private bool _DashCheck;
 
     public float GroundCheckDistance = 0.05f;
@@ -32,14 +34,13 @@ public class PlayerController : MonoBehaviour
         //Jump if Space is pressed & GroundCheck = true
         if (Input.GetKeyDown(KeyCode.Space) && _GroundCheck == true)
         {
-            _DashCheck = false;
             _rb.AddForce(Vector3.up * _jumpForce);
         }
 
         //Dash
         var dashDirection = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
 
-        if (Input.GetKeyDown(KeyCode.Space) && _GroundCheck == false && _DashCheck == false)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && _GroundCheck == false && _DashCheck == false)
         {
             _rb.AddForce(dashDirection * _dashForce, ForceMode.Impulse);
             _DashCheck = true;
@@ -47,13 +48,12 @@ public class PlayerController : MonoBehaviour
         }
 
         //Double Jump
-        //var jumpDirection = new Vector3(0, 1, 0); //Input.GetAxis("Vertical")
-
-        /*if (Input.GetKeyDown(KeyCode.Space) && Input.GetKeyDown("w")) //&& _GroundCheck == false
+        if (Input.GetKeyDown(KeyCode.Space) && _GroundCheck == false && _doublejumpCheck == false) 
         {
-            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            _rb.AddForce(Vector3.up * _doublejumpForce, ForceMode.Impulse);
+            _doublejumpCheck = true;
             Debug.Log("WHEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!");
-        }*/
+        }
 
     }
 
@@ -67,6 +67,8 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(transform.position, -transform.up, out hit, GroundCheckDistance))
         {
             _GroundCheck = true;
+            _doublejumpCheck = false;
+            _DashCheck = false;
             Debug.Log("Am Boden");
 
         }
