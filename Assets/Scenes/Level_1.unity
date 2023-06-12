@@ -2384,15 +2384,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750556, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750556, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750556, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.081
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750556, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2432,15 +2432,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: _dashForce
-      value: 100
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: _jumpForce
-      value: 200
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
+      propertyPath: _doublejumpForce
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: GroundCheckDistance
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071519531337750559, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071519531337750559, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071519531337750559, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071519531337750559, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071519531337750559, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750563, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_Name
@@ -4251,6 +4275,18 @@ PrefabInstance:
       propertyPath: from
       value: 
       objectReference: {fileID: 1650138604}
+    - target: {fileID: 2563996996406485797, guid: 0bdeff34d7421d34fa29a85e1f78eea6, type: 3}
+      propertyPath: m_Size.z
+      value: 1.0198722
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563996996406485797, guid: 0bdeff34d7421d34fa29a85e1f78eea6, type: 3}
+      propertyPath: m_Center.z
+      value: 0.5067433
+      objectReference: {fileID: 0}
+    - target: {fileID: 2563996996406485797, guid: 0bdeff34d7421d34fa29a85e1f78eea6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7648260178457756241, guid: 0bdeff34d7421d34fa29a85e1f78eea6, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4298,6 +4334,10 @@ PrefabInstance:
     - target: {fileID: 7648260178457756270, guid: 0bdeff34d7421d34fa29a85e1f78eea6, type: 3}
       propertyPath: m_Name
       value: Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416236555434426646, guid: 0bdeff34d7421d34fa29a85e1f78eea6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8581307570410496360, guid: 0bdeff34d7421d34fa29a85e1f78eea6, type: 3}
       propertyPath: m_Name

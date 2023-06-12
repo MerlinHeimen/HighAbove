@@ -11,31 +11,53 @@ public class BridgeController : MonoBehaviour
     [SerializeField] private float t = 0.0f;
 
     private float BridgeTimer = 0.0f;
+    private float lerpTimer = 0.0f;
+
+    public bool bridgeTriggerState = false;
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Continue work on Bridge Controller. Bridge needs lerp for raise movement");
         //Setting rotation range
-        transform.rotation = Quaternion.Slerp(from.rotation, to.rotation, t);
+        transform.rotation = Quaternion.Slerp(from.rotation, to.rotation, (t * 8));
 
-        //Checks the status of Bridge and BridgeTimer. Resets Bridge after time has run out.
-        if (t == 1.0f){
+        //Lowers bridge by adding deltaTime to t every frame
+        if(bridgeTriggerState == true)
+        {
+            lerpTimer += Time.deltaTime;
+            t = lerpTimer;
+        }
+
+        //Checks if the Bridge is raised or lowered and starts BridgeTimer if Bridge is lowered. Raises Bridge after time has run out.
+
+        if (lerpTimer >= 1.0f)
+        {
+            bridgeTriggerState = false;
+            lerpTimer = 0;
+        }
+
+
+        //TO WORK ON
+        if (bridgeTriggerState == false){
             
-            BridgeTimer = BridgeTimer + Time.deltaTime;
+            BridgeTimer += Time.deltaTime;
 
             if (BridgeTimer >= 1.0f)
             {
                 t = 0.0f;
                 BridgeTimer = 0.0f;
             }
+
+            //Debug.Log(BridgeTimer);
          }
+
+
     }
 
-    //Lowers Bridge on collision (reacts to wrench-collider only in the future)
-    private void OnCollisionEnter(Collision collision)
+    //Lowers Bridge on collision
+    private void OnTriggerEnter(Collider other)
     {
-        if(t == 0.0f){
-            t = 1.0f;
-        }
+        bridgeTriggerState = true;
     }
 }

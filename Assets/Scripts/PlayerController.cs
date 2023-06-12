@@ -69,13 +69,13 @@ public class PlayerController : MonoBehaviour
             _GroundCheck = true;
             _doublejumpCheck = false;
             _DashCheck = false;
-            Debug.Log("Am Boden");
+            //Debug.Log("Am Boden");
 
         }
         else
         {
             _GroundCheck = false;
-            Debug.Log("In der Luft");
+            //Debug.Log("In der Luft");
         }
     }
 

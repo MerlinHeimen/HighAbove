@@ -92,7 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8961386357268184018}
-  - component: {fileID: 7428191736098064336}
+  - component: {fileID: 2563996996406485797}
+  - component: {fileID: 8416236555434426646}
   - component: {fileID: -8527762803792648228}
   m_Layer: 0
   m_Name: Bridge
@@ -117,8 +118,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &7428191736098064336
-MeshCollider:
+--- !u!65 &2563996996406485797
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581307570410496360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.13686855, y: 2.6741161, z: 1}
+  m_Center: {x: 0.08586422, y: 1.3576593, z: 0}
+--- !u!65 &8416236555434426646
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,10 +141,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: cc18bf3b3bf36184eb752d50dd63b5e6, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.16100782, y: 2.69528, z: 1}
+  m_Center: {x: 0.20073146, y: 1.348999, z: 0}
 --- !u!114 &-8527762803792648228
 MonoBehaviour:
   m_ObjectHideFlags: 0

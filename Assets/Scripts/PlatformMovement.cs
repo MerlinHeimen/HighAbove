@@ -15,6 +15,7 @@ public class PlatformMovement : MonoBehaviour
 
     private float _timeToWaypoint;
     private float _elapsedTime;
+
     // Start is called before the first frame update
     void Start()
     {
