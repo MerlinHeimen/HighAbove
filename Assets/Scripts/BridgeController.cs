@@ -8,56 +8,75 @@ public class BridgeController : MonoBehaviour
     public Transform from;
     public Transform to;
 
+    public float rotationSpeed = 8;
+
     [SerializeField] private float t = 0.0f;
 
     private float BridgeTimer = 0.0f;
     private float lerpTimer = 0.0f;
 
-    public bool bridgeTriggerState = false;
+    public bool bridgeTrigger = false;
+    public bool bridgeStateUp = true;
+    public bool bridgeStateDown = false;
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Continue work on Bridge Controller. Bridge needs lerp for raise movement");
+        //Debug.Log("Continue work on Bridge Controller. Bridge needs lerp for raise movement");
+
+
         //Setting rotation range
-        transform.rotation = Quaternion.Slerp(from.rotation, to.rotation, (t * 8));
+        transform.rotation = Quaternion.Slerp(from.rotation, to.rotation, t);
 
-        //Lowers bridge by adding deltaTime to t every frame
-        if(bridgeTriggerState == true)
+        //Lowers bridge by adding deltaTime to t every frame and setting bridgeStateDown = true if bridge is fully lowered
+        if(bridgeStateUp = true && bridgeTrigger == true)
         {
-            lerpTimer += Time.deltaTime;
+            lerpTimer += (Time.deltaTime * rotationSpeed);
             t = lerpTimer;
+            //Debug.Log(lerpTimer);
         }
 
-        //Checks if the Bridge is raised or lowered and starts BridgeTimer if Bridge is lowered. Raises Bridge after time has run out.
-
-        if (lerpTimer >= 1.0f)
+        //Sets bridge states and resets timers if bridge arrives at lowered state
+        if (t >= 1.0f)
         {
-            bridgeTriggerState = false;
-            lerpTimer = 0;
+            bridgeStateDown = true;
+            bridgeStateUp = false;
+            bridgeTrigger = false;
+            lerpTimer = 1.0f;
+            t = 1.0f;
+        
         }
 
+        //Checks if the Bridge is in lowered state and starts countdown to raise bridge. Raises bridge after countdonw runs out [1 sec]
 
-        //TO WORK ON
-        if (bridgeTriggerState == false){
-            
+        if (bridgeStateDown == true)
+        {
+
             BridgeTimer += Time.deltaTime;
+            //Debug.Log(lerpTimer);
 
-            if (BridgeTimer >= 1.0f)
+            if (BridgeTimer >= 1.0f && lerpTimer >= 0)
             {
-                t = 0.0f;
-                BridgeTimer = 0.0f;
+                lerpTimer -= (Time.deltaTime * rotationSpeed);
+                t = lerpTimer;
             }
+        }
 
-            //Debug.Log(BridgeTimer);
-         }
-
+        //Sets bridge states and resets timers if bridge arrives at raised state
+        if (t <= 0.0f)
+        {
+            bridgeStateDown = false;
+            bridgeStateUp = true;
+            BridgeTimer = 0.0f;
+            lerpTimer = 0.0f;
+            t = 0.0f;
+        }
 
     }
 
     //Lowers Bridge on collision
     private void OnTriggerEnter(Collider other)
     {
-        bridgeTriggerState = true;
+        bridgeTrigger = true;
     }
 }
