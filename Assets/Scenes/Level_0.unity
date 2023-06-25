@@ -5278,7 +5278,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8527762803792648228, guid: 0bdeff34d7421d34fa29a85e1f78eea6, type: 3}
       propertyPath: t
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8527762803792648228, guid: 0bdeff34d7421d34fa29a85e1f78eea6, type: 3}
       propertyPath: to
@@ -5359,11 +5359,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750556, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.75
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750556, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750556, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5403,7 +5403,11 @@ PrefabInstance:
       objectReference: {fileID: 1084331352}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: _speed
-      value: 3.02
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
+      propertyPath: downForce
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: _DashCheck
@@ -5411,11 +5415,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: _dashForce
-      value: 100
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: _jumpForce
-      value: 200
+      value: 22000
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: GroundBuffer
@@ -5426,12 +5430,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
+      propertyPath: _doublejumpForce
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: GroundCheckDistance
       value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750558, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: _GroundCheckDistance
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2071519531337750559, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
+      propertyPath: m_Mass
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2071519531337750559, guid: 38cec1d8a61403345a9a845131e53e9e, type: 3}
       propertyPath: m_CollisionDetection
