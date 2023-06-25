@@ -22,14 +22,11 @@ public class BridgeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Continue work on Bridge Controller. Bridge needs lerp for raise movement");
-
-
         //Setting rotation range
         transform.rotation = Quaternion.Slerp(from.rotation, to.rotation, t);
 
         //Lowers bridge by adding deltaTime to t every frame and setting bridgeStateDown = true if bridge is fully lowered
-        if(bridgeStateUp = true && bridgeTrigger == true)
+        if(bridgeStateUp == true && bridgeTrigger == true)
         {
             lerpTimer += (Time.deltaTime * rotationSpeed);
             t = lerpTimer;
@@ -42,9 +39,7 @@ public class BridgeController : MonoBehaviour
             bridgeStateDown = true;
             bridgeStateUp = false;
             bridgeTrigger = false;
-            lerpTimer = 1.0f;
             t = 1.0f;
-        
         }
 
         //Checks if the Bridge is in lowered state and starts countdown to raise bridge. Raises bridge after countdonw runs out [1 sec]
@@ -53,7 +48,6 @@ public class BridgeController : MonoBehaviour
         {
 
             BridgeTimer += Time.deltaTime;
-            //Debug.Log(lerpTimer);
 
             if (BridgeTimer >= 1.0f && lerpTimer >= 0)
             {
@@ -68,7 +62,6 @@ public class BridgeController : MonoBehaviour
             bridgeStateDown = false;
             bridgeStateUp = true;
             BridgeTimer = 0.0f;
-            lerpTimer = 0.0f;
             t = 0.0f;
         }
 
