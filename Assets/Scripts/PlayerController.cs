@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //Movement Speed & Jumpforce
-    [SerializeField] private float _speed = 3;
-    [SerializeField] private float _jumpForce = 20;
-    //[SerializeField] private float _doublejumpForce = 5;
-    [SerializeField] private float _dashForce = 10000;
-    
+    //Movement Speed & forces
+    [SerializeField] private float _speed = 3.0f;
+    [SerializeField] private float _jumpForce = 20.0f;
+    //[SerializeField] private float _doublejumpForce = 5.0f;
+    [SerializeField] private float _dashForce = 10.0f;
+    private float _knockbackforce = 3.0f;
+    private float _knockbackTimer;
+    private bool _knockbackState;
+
     private float _forceMultiplier = 1000;
 
     [SerializeField] private Rigidbody _rb;
@@ -21,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public float downForce = 50;
 
     public bool wall;
+    
 
     
     
@@ -49,7 +53,7 @@ public class PlayerController : MonoBehaviour
             if (_rb.velocity.y < (-20.0f))
             {
                 _rb.AddForce(Vector3.up * (downForce * 2));
-                Debug.Log("Canceling downForce: " + _rb.velocity);
+                //Debug.Log("Canceling downForce: " + _rb.velocity);
 
             }
         }
@@ -85,7 +89,21 @@ public class PlayerController : MonoBehaviour
             //Debug.Log("WHEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE!");
         }
 
-        //Disable movement in collider direction
+        //Knockback
+        if (_knockbackState == true)
+        {
+            _knockbackTimer += Time.deltaTime;
+            _speed = 0.0f;
+
+            if (_knockbackTimer >= 0.5f)
+            {
+                _knockbackTimer = 0f;
+                _speed = 3.0f;
+                _knockbackState = false;
+            }
+        }
+
+        //Disable movement in collider direction --------------------------------------------------------------------------------------------
         /*var movementRight = new Vector3(-1, 0, 0);
         if (wall == true)
         {
@@ -132,12 +150,36 @@ public class PlayerController : MonoBehaviour
         {
             wall = true;
         }
-        
+        //-------------------------------------------------------------
+        //Knockback
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Knockback();
+            _knockbackState = true;
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        wall = false;
+        //wall = false;
+    }
+
+    public void Knockback()
+    {
+        var knockbackToLeft = new Vector3(-1.0f, 0.0f, 0.0f);
+        var knockbackToRight = new Vector3(1.0f, 0.0f, 0.0f);
+
+        if (Input.GetAxis("Horizontal") >= 0.0f)
+        {
+            //_rb.AddForce((-knockbackDirection) * (_knockbackforce * _forceMultiplier), ForceMode.Impulse);
+            _rb.AddForce(knockbackToLeft * (_knockbackforce * _forceMultiplier), ForceMode.Impulse);
+        }
+        
+        if (Input.GetAxis("Horizontal") < 0.0f)
+        {
+            _rb.AddForce(knockbackToRight * (_knockbackforce * _forceMultiplier), ForceMode.Impulse);
+        }
     }
 
 }
