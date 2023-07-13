@@ -60,8 +60,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.944283, y: 0.6092695, z: 1.2428238}
-  m_Center: {x: 1.0059628, y: 0.23125345, z: 0.6194625}
+  m_Size: {x: 1.944283, y: 0.35375947, z: 1.2428238}
+  m_Center: {x: 1.0059628, y: 0.35900846, z: 0.6194625}
 --- !u!114 &152816015099842300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waypointPath: {fileID: 0}
   _speed: 0
+  isParent: 0
 --- !u!1001 &797442684083204406
 PrefabInstance:
   m_ObjectHideFlags: 0
