@@ -45,17 +45,35 @@ public class PlayerController : MonoBehaviour
         {
             _rb.AddForce(Vector3.up * (_jumpForce * _forceMultiplier));
         }
-            //Add down force 
+            //Add down force
         if (_rb.velocity.y < 0.0f && _GroundCheck == false)
         {
             _rb.AddForce(Vector3.down * downForce);
 
+            //Limit fall-speed
             if (_rb.velocity.y < (-20.0f))
             {
                 _rb.AddForce(Vector3.up * (downForce * 2));
-                //Debug.Log("Canceling downForce: " + _rb.velocity);
+                Debug.Log("Canceling downForce: " + _rb.velocity);
 
             }
+            /*else if (_rb.velocity.y > (2.0f))
+            {
+                _rb.AddForce(Vector3.down * (downForce * 2));
+                Debug.Log("Canceling upForce: " + _rb.velocity);
+                Debug.Log("Up velocity: " + _rb.velocity.y);
+
+
+            }*/
+        }
+
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        }
+        else if (Input.GetAxis("Horizontal") < 0)
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
         }
 
 
