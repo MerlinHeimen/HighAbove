@@ -57,23 +57,22 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Canceling downForce: " + _rb.velocity);
 
             }
+            //Limit up-speed
             /*else if (_rb.velocity.y > (2.0f))
             {
                 _rb.AddForce(Vector3.down * (downForce * 2));
                 Debug.Log("Canceling upForce: " + _rb.velocity);
                 Debug.Log("Up velocity: " + _rb.velocity.y);
-
-
             }*/
         }
 
         if (Input.GetAxis("Horizontal") > 0)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+            GameObject.Find("BlueHat_CustomExport").transform.localRotation = Quaternion.Euler(new Vector3(0, 90, 0));
         }
         else if (Input.GetAxis("Horizontal") < 0)
         {
-            transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+            GameObject.Find("BlueHat_CustomExport").transform.localRotation = Quaternion.Euler(new Vector3(0, 270, 0));
         }
 
 
